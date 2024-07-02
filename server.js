@@ -6,7 +6,7 @@ const app = express();
 
 
 
-//  database connection
+
  connecToDb((err)=>{
   if (!err) {
     app.listen( port, () => {
