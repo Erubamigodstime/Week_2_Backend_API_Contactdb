@@ -1,9 +1,11 @@
 const { MongoClient } = require('mongodb');
+const dotenv = require('dotenv')
+dotenv.config()
 
 let db;
 
 const connecToDb = async (callback) => {
-    const connectionString = 'mongodb+srv://erubamigodstime:godstime@cse340.uclncjl.mongodb.net/Contacts';
+    const connectionString = process.env.MONGODB_URL;
 
     try {
         const client = await MongoClient.connect(connectionString, );

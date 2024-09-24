@@ -1,19 +1,11 @@
-const swaggerAutogen = require('swagger-autogen')();
 
-
-const doc = {
-  swagger: '2.0',
-  info: {
-    title: 'My API',
-    description: 'User API'
-  },
-  host: 'localhost:8000',
-  schemes: ['http']
-};
+const fs = require('fs');
+const swaggerDocs = require('./swaggerOptions.js');
 
 const outputFile = './swagger-output.json';
-const routes = ['./routes/index'];
 
+// Save the Swagger docs to a file
+fs.writeFileSync(outputFile, JSON.stringify(swaggerDocs, null, 2));
 
+console.log('Swagger documentation generated.');
 
-swaggerAutogen(outputFile, routes, doc);
